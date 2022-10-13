@@ -16,7 +16,7 @@ let navLinks = LINKS.map((link) => {
       key={link}
       text={link}
       href={link == "Home" ? "/" : "/" + link.toLowerCase()}
-      //the Home button should redirect to / rather than /home
+      //the Home button should redirect to "/" rather than "/home"
     />
   );
 });
