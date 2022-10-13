@@ -1,0 +1,21 @@
+This is the data every user has:
+
+UserID: UUID
+
+UserName: text (max 20? chars)
+
+Password: text (hash w/salt)
+
+Description: text (max 120? chars)
+
+OwnedProjects: object (ProjectID:ProjectObject)
+
+AuthoredIdeas: object (IdeaID:IdeaProject)
+
+Following: object (UserIDs:UserObject)
+
+FollowedBy: object (UserIDs:UserObject)
+
+Company: text (maybe CompanyID instead?)
+
+WatchedProjects: object (ProjectID:projectObject)
