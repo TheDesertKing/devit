@@ -1,9 +1,11 @@
 import NavigationBar from "./navigationBar";
+import Image from "next/image";
+import logo from "../../public/devitlogo.png";
 
-const Header = ({ logoPath }) => {
+const Header = () => {
   return (
     <div className="header">
-      <img htmlClass="logo" alt="Dev-It Logo" src={logoPath} />
+      <Image src={logo} className="logo" alt="Dev-It Logo" />
       <NavigationBar htmlClass="nav-bar" />
     </div>
   );

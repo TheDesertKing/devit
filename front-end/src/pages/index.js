@@ -1,30 +1,20 @@
-import Image from "next/image";
+//settings JSON:
+import configJson from "../AppConfig.json";
+//Self-Made Components:
+import Header from "../components/header";
+// import PageNotFound from "./404";
+// import About from "./about";
+// import Home from "./home";
+// import Ideas from "./ideas";
+// import Projects from "./projects";
+//Other Components:
+//import Image from "next/image";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Image
-          src={"/logo.png"}
-          className="App-logo"
-          width={200}
-          height={200}
-          alt="logo"
-        />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
