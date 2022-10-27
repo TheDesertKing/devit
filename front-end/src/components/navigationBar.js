@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const NavigationLink = ({ text, href }) => {
   return (
-    <Link className="nav-link" to={href}>
+    <Link className="nav-link" href={href}>
       {text}
     </Link>
   );
