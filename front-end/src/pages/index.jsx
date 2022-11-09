@@ -1,7 +1,6 @@
 //settings JSON:
 import configJson from "../AppConfig.json";
 //Self-Made Components:
-import Header from "../components/header";
 // import PageNotFound from "./404";
 // import About from "./about";
 // import Home from "./home";
@@ -13,7 +12,7 @@ import Header from "../components/header";
 function App() {
   return (
     <>
-      <Header />
+      <h1>Welcome Home</h1>
     </>
   );
 }
