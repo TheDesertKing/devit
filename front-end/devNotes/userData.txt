@@ -8,14 +8,16 @@ Password: text (hash w/salt)
 
 Description: text (max 120? chars)
 
-OwnedProjects: object (ProjectID:ProjectObject)
+OwnedProjects: [ProjectID] 
 
-AuthoredIdeas: object (IdeaID:IdeaProject)
+AuthoredIdeas: [IdeaID]
 
-Following: object (UserIDs:UserObject)
+Following: [UserID]
 
-FollowedBy: object (UserIDs:UserObject)
+FollowerCount: number
 
-Company: text (maybe CompanyID instead?)
+FollowedBy: [UserIDs]
 
-WatchedProjects: object (ProjectID:projectObject)
+Company: CompanyID (sequential)
+
+WatchedProjects: [ProjectID]

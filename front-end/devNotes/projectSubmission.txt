@@ -1,0 +1,23 @@
+USER GENERATED:
+
+ProjectTitle: text (max 30? chars)
+
+ProjectDescription: MarkUp-text (max 300? chars)
+
+*ProjectTags: multi-choice text categories (names of software, apis, tools, concepts, programming languages) [suggest tags from the idea]
+
+ProgrammingLanguages: multi-choice text categories
+
+GitHubRepoLink: text (hyper-link to where the project is hosted over GitHub)
+
+IdeaID: number (corresponding to the idea this project is a submission of)
+
+SubmitterID: UUID (corresponding to a UserID UUID)
+
+CompanySupport: CompanyID
+
+SERVER GENERATED:
+
+ProjectID: number (sequential, PK is IdeaID:ProjectID)
+
+ProjectFollowerCount: number

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NavigationLink = ({ text, href }) => {
   return (
-    <Link className="nav-link" href={href}>
+    <Link htmlClass="nav-link" href={href}>
       {text}
     </Link>
   );

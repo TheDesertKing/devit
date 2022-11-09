@@ -1,16 +1,22 @@
+USER GENERATED:
+
 I'm trying to lay-out the data needed from a user while he's submitting an idea for projects:
 
-Title: text (max 60? chars)
-Description: text (max 400? chars)
+IdeaTitle: text (max 30? chars)
 
-Tags: multi-choice text categories (names of software, apis, tools, concepts, programming languages) --at least 3!
+IdeaDescription: MarkUp-text (max 300? chars)
+
+IdeaTags: text - multi-choice categories (names of software, apis, tools, concepts, programming languages) --at least 3!
+
+*RelatedIdeas: [numbers] (corresponding to the idea's ids)
 
 *Links: text (hyper-links related to the subject of the idea)
 
-*psudo-code/snippets: MarkUp-text (example or direction of how to implement/ useful code snippets)
 
 *== optional
 
-And the server-generated data relating to a new idea:
+SERVER GENERATED:
 
-id: number (sequential - for now, uuid might be better)
+IdeaID: number (sequential)
+
+IdeaFollowerCount: number
