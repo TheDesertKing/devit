@@ -19,3 +19,5 @@ Integrate repository data from GitHub.
 Integrate repository data from GitLab. (not must)
 
 Design index page lay-out.
+
+Document the project.
