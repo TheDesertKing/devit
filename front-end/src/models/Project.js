@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const userChema = new mongoose.Schema({
+const projectChema = new mongoose.Schema({
   name: String,
-  age: Number,
+  id: Number,
 });
 
-module.exports = mongoose.model("User", userChema);
+module.exports = mongoose.model("Project", projectChema);
