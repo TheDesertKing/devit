@@ -4,6 +4,7 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
+      "@/models/*": ["src/models/*"],
     }
   },
   "exclude": ["./node_modules"]
