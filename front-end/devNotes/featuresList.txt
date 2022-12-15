@@ -1,0 +1,22 @@
+#Core for kick-off:
+Project submission
+Idea submission
+User page and data (related projects and ideas and company)
+Idea page and data
+Project page and data
+Login w/google and friends
+Connect User to GitHub
+Search page w/searching by tags
+
+
+#Core for full app:
+Explore page w/explore by tags
+Score/Credit system, like stackoverflow
+
+Monitary system (Company contracts on ideas) [one day!]
+
+
+#Extra:
+
+Find random project
+
