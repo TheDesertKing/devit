@@ -4,6 +4,7 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 body {
@@ -15,7 +16,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "logo nav-bar ...";
-  background-color: #513B56;
+  background-color: #513b56;
 }
 
 .logo {
@@ -35,23 +36,19 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-
-.nav-link {
+.nav-bar > li > * {
   cursor: pointer;
   block-size: -webkit-fit-content;
   block-size: -moz-fit-content;
   block-size: fit-content;
-  margin: 0.5rem;
+  margin: 1rem;
   font-family: "Arimo", sans-serif;
-  font-size: 2rem;
+  font-size: 3.5rem;
   text-decoration: none;
   font-weight: bold;
   color: #aaa6bb;
   display: block;
   overflow: auto;
-}
-
-.nav-link {
   background: -webkit-gradient(linear, left top, right top, from(rgb(100, 200, 200)), to(rgb(100, 200, 200))), -webkit-gradient(linear, left top, right top, from(#ffb56b), color-stop(#fbbd58), color-stop(#f1c744), color-stop(#e1d231), color-stop(#cbde20), color-stop(#ace91b), color-stop(#81f42b), to(#28ff45));
   background: -o-linear-gradient(left, rgb(100, 200, 200), rgb(100, 200, 200)), -o-linear-gradient(left, #ffb56b, #fbbd58, #f1c744, #e1d231, #cbde20, #ace91b, #81f42b, #28ff45);
   background: linear-gradient(to right, rgb(100, 200, 200), rgb(100, 200, 200)), linear-gradient(90deg, #ffb56b, #fbbd58, #f1c744, #e1d231, #cbde20, #ace91b, #81f42b, #28ff45);
@@ -62,7 +59,7 @@ body {
   -o-transition: background-size 400ms;
   transition: background-size 400ms;
 }
-.nav-link:hover {
+.nav-bar > li > *:hover {
   background-size: 0 3px, 100% 3px;
 }
 
