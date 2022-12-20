@@ -1,23 +1,27 @@
 This is the data every user has:
 
-UserID: UUID
+user_id: UUID
 
-UserName: text (max 20? chars)
+username: text (max 20? chars)
 
-Password: text (hash w/salt)
+password: text (hash w/salt)
 
-Description: text (max 120? chars)
+user_description: text (max 120? chars)
 
-OwnedProjects: [ProjectID] 
+user_tags: [text] (list of tags)
 
-AuthoredIdeas: [IdeaID]
+github_account_link: text (possible hide functionality)
 
-Following: [UserID]
+owned_projects: [ProjectID] 
 
-FollowerCount: number
+authored_ideas: [IdeaID]
 
-FollowedBy: [UserIDs]
+following: [UserID]
 
-Company: CompanyID (sequential)
+follower_count: number
 
-WatchedProjects: [ProjectID]
+followed_by: [UserIDs]
+
+company: CompanyID (sequential)
+
+watched_projects: [ProjectID]
