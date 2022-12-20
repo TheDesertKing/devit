@@ -2,15 +2,19 @@ USER GENERATED:
 
 I'm trying to lay-out the data needed from a user while he's submitting an idea for projects:
 
-IdeaTitle: text (max 30? chars)
+idea_title: text (max 30? chars)
 
-IdeaDescription: MarkUp-text (max 300? chars)
+idea_description: MarkUp-text (max 300? chars)
 
-IdeaTags: text - multi-choice categories (names of software, apis, tools, concepts, programming languages) --at least 3!
+idea_tags: text - multi-choice categories (names of software, apis, tools, concepts, programming languages) --at least 3!
 
-*RelatedIdeas: [numbers] (corresponding to the idea's ids)
+subbmiter_id: UserID
 
-*Links: text (hyper-links related to the subject of the idea)
+related_projects: [ProjectID]
+
+*related_ideas: [numbers] (corresponding to the idea's ids)
+
+*links: text (hyper-links related to the subject of the idea)
 
 
 *== optional
@@ -21,8 +25,6 @@ date_created: date
 
 date_changed: date
 
-IdeaID: number (sequential)
+idea_id: number (sequential)
 
-IdeaFollowerCount: number
-
-related_projects: [numbers] (project_id's)
+idea_follower_count: number
