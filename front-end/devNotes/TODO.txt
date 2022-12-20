@@ -10,6 +10,8 @@ Create Admin profile.
 
 Create idea submission interface.
 Create project submission interface.
+DONT FORGET VALIDATION FOR IDEA_ID WHEN
+SUBMITTING PROJECT & VICE VERSA
 
 Add file upload functionality support, for image uploading in idea submission.
 

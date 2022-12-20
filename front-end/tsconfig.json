@@ -2,9 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/models/*": ["src/models/*"],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/models/*": [
+        "src/models/*"
+      ]
     },
     "lib": [
       "dom",
@@ -22,7 +28,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "target": "es5"
   },
   "include": [
     "next-env.d.ts",

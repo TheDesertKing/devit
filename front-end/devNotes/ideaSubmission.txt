@@ -17,6 +17,12 @@ IdeaTags: text - multi-choice categories (names of software, apis, tools, concep
 
 SERVER GENERATED:
 
+date_created: date
+
+date_changed: date
+
 IdeaID: number (sequential)
 
 IdeaFollowerCount: number
+
+related_projects: [numbers] (project_id's)

@@ -1,12 +1,15 @@
-import startMongo from "@/lib/startMongo"
-import projectModel from "@/models/Project"
+import startMongoAndGetModels from "@/lib/startMongo"
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method == "GET") {
-    startMongo(true)
-
-    let firstProject = new projectModel({ name: "first", id: 0 })
-    firstProject.save((err) => console.log("Error: ", err))
-    res.status(200).json(123)
+    // const models = await startMongoAndGetModels()// should i await this?
+    let a = startMongoAndGetModels().then(console.log("123"))
+    // const a = startMongoAndGetModels()
+    console.log(2, a)
+    a.then((value) => {
+      console.log(3, a, value)
+      res.status(200).send(a, value)
+    })
+    console.log(1, a)
   }
 }

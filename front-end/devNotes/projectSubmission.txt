@@ -1,23 +1,28 @@
 USER GENERATED:
 
-ProjectTitle: text (max 30? chars)
+project_name: text (max 30? chars, no special chars)
 
-ProjectDescription: MarkUp-text (max 300? chars)
+project_description: MarkUp-text (max 300? chars)
 
-*ProjectTags: multi-choice text categories (names of software, apis, tools, concepts, programming languages) [suggest tags from the idea]
+*project_tags: multi-choice text categories (names of software, apis, tools, concepts, programming languages) [suggest tags from the idea]
 
-ProgrammingLanguages: multi-choice text categories
+github_repo_link: text (hyper-link to where the project is hosted over GitHub)
 
-GitHubRepoLink: text (hyper-link to where the project is hosted over GitHub)
+idea_id: number (corresponding to the idea this project is a submission of)
 
-IdeaID: number (corresponding to the idea this project is a submission of)
+submitter_id: UUID (corresponding to a UserID UUID)
 
-SubmitterID: UUID (corresponding to a UserID UUID)
-
-CompanySupport: CompanyID
+company_support: CompanyID
 
 SERVER GENERATED:
 
-ProjectID: number (sequential, PK is IdeaID:ProjectID)
+date_created: date
 
-ProjectFollowerCount: number
+date_changed: date
+
+programming_languages: multi-choice text categories
+
+project_id: number (sequential, PK is IdeaID:ProjectID)
+
+project_follower_count: number
+
