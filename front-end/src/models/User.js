@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   user_id: Number,
   following: [Number],
   followed_by: [Number],
-  follower_count: number,
+  follower_count: Number,
   authored_ideas: [Number],
   owned_projects: [Number],
   watched_projects: [Number],
