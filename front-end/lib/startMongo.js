@@ -9,7 +9,7 @@ const startMongoAndGetModels = async () => {
       .connect(process.env.MONGODB_STRING)
       .catch((error) => console.log("MongoDB connection error: ", error))
   }
-  return [user, idea, project]
+  return { user: user, idea: idea, project: project }
 }
 
 export default startMongoAndGetModels

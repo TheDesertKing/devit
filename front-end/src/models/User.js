@@ -1,25 +1,53 @@
 import mongoose from "mongoose"
 
-const userSchema = new mongoose.Schema({
-  //user submitted
-  username: String,
-  user_description: String,
-  user_tags: [String],
-  github_account_link: String,
+const userSchema = new mongoose.Schema(
+  {
+    //user submitted
+    username: {
+      type: String,
+      required: true,
+    },
+    user_description: {
+      type: String,
+      required: true,
+    },
+    user_tags: {
+      type: [String],
+      required: true,
+    },
+    github_account_link: String,
 
-  //client side generated
+    //client side generated
 
-  //server side generated
-  user_id: Number,
-  following: [Number],
-  followed_by: [Number],
-  follower_count: Number,
-  authored_ideas: [Number],
-  owned_projects: [Number],
-  watched_projects: [Number],
-  date_joined: Date,
-  date_updated: Date,
-  // company_id: Number, Not yet implemented!
-})
+    //server side generated
+
+    following: {
+      type: [Number],
+      default: [],
+    },
+    followed_by: {
+      type: [Number],
+      default: [],
+    },
+    follower_count: {
+      type: Number,
+      default: 0,
+    },
+    authored_ideas: {
+      type: [Number],
+      default: [],
+    },
+    owned_projects: {
+      type: [Number],
+      default: [],
+    },
+    watched_projects: {
+      type: [Number],
+      default: [],
+    },
+    // company_id: Number, Not yet implemented!
+  },
+  { timestamps: true }
+)
 
 module.exports = mongoose.models.User || mongoose.model("User", userSchema)
