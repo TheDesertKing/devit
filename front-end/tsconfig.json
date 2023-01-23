@@ -10,6 +10,9 @@
       ],
       "@/models/*": [
         "src/models/*"
+      ],
+      "@/types/*": [
+        "types/*"
       ]
     },
     "lib": [
@@ -35,7 +38,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "util/ts-to-zod.mjs"  ],
   "exclude": [
     "node_modules"
   ]

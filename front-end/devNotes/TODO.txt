@@ -1,9 +1,4 @@
-
-Lay out the data for:
-ideaSubmission
-userData
-projectSubmission
-
+Change type from number to ObjectID of mongoose
 
 Create User profile.
 Create Admin profile.

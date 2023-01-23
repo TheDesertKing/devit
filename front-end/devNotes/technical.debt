@@ -1,0 +1,12 @@
+Because I want projects and ideas IDs to be sequential,
+if one is deleted, I need to display a special
+"Project|Idea Deleted|Privated" page.
+
+Multiple owners of same project..? maybe teams?
+or organizations?
+
+LAST STEPS PRE-PRODUCTION:
+move mongoDB string from file to server env var
+remove all:
+" if(process.env.NODE_ENV == "development") "
+checks.
