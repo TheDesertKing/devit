@@ -13,7 +13,11 @@
       ],
       "@/types/*": [
         "types/*"
+      ],
+      "@/api/*": [
+        "src/pages/api/*"
       ]
+
     },
     "lib": [
       "dom",
@@ -37,8 +41,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "util/ts-to-zod.mjs"  ],
+    "**/*.tsx", "testing/newUserData.test.js"
+, "util/ts-to-zod.mjs", "testing/newUserData.mts"  ],
   "exclude": [
     "node_modules"
   ]

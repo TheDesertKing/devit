@@ -1,5 +1,5 @@
 # Testing user creation endpoint:
-# /api/db/user
+# POST /api/db/user
 
 POST http://localhost:3000/api/db/user
 content-type: application/json

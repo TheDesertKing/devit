@@ -1,25 +1,21 @@
 import startMongoAndGetModels from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
 import { User, NewUser } from "@/types/userInterface"
-import { userSchema, newUserSchema } from "@/types/zod/userInterface.zod"
+import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
 
 
 const panic = (res: NextApiResponse, errorMessage: string, errorCode: number = 400): void => {
   res.status(errorCode).send(errorMessage)
 }
 
-const parseNewUser = (reqBody: object): NewUser | void => {
+const parseNewUser = (reqBody: object): INewUserSchema | void => {
   const parsedData = newUserSchema.safeParse(reqBody)
   if (parsedData["success"]) {
-    const newUserData = parsedData["data"];
-    return {
-      username: newUserData['username'],
-      user_description: newUserData['user_description'] ? newUserData['user_description'] : '',
-      // user_tags: newUserData['user_tags'] ? newUserData['user_tags'],
-      // github_account_link: newUserData['github_account_link'] ?  newUserData['github_account_link'] : ''
-    }
+    const newUserData: INewUserSchema = parsedData["data"];
+    return newUserData
   } else { return }
 }
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const models = await startMongoAndGetModels()
@@ -65,3 +61,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //remove document by id
   }
 }
+
+export { parseNewUser }
