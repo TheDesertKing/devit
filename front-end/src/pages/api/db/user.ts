@@ -16,6 +16,11 @@ const parseNewUser = (reqBody: object): INewUserSchema | void => {
   } else { return }
 }
 
+const isContentTypeJSON = (req: NextApiRequest): boolean => {
+  console.log(req.headers['content-type'])
+  return req.headers['content-type'] === 'application/json'
+}
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const models = await startMongoAndGetModels()
@@ -28,22 +33,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method == "POST") {
     const newUserData = parseNewUser(req.body)
-    if (typeof newUserData == "undefined") {
+    if (typeof newUserData === undefined) {
       panic(res, "Error while parsing form data", 400)
       return
     }
-    const newUser = await models['user'].create(newUserData)
 
-    //*testing!
-    const testUserData: NewUser = {
-      username: 'testos',
-      user_description: 'testing!',
-      user_tags: ['test', 'testing'],
-    }
-    //*
+
+    console.log(req.headers['content-type'])
+    // const newUser = await models['user'].create(newUserData)
 
     if (process.env.NODE_ENV == "development") {
-      res.status(200).send(JSON.stringify(newUser) + typeof (newUser))
+      res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
     } else {
       res.status(200).send("User successfully added")
     }
