@@ -38,3 +38,22 @@ test("Creating new user with extra unrelated data", () => {
   }
   expect(parseNewUser(userData)).toStrictEqual(expectedData)
 })
+
+test("Creating new user with wrong data types on optional fields", () => {
+  const userData = {
+    username: "abcd",
+    user_description: 1234,
+  }
+  expect(parseNewUser(userData)).toStrictEqual(undefined)
+})
+
+test("Creating new user with wrong data types on unrelated fields", () => {
+  const userData = {
+    username: "abcd",
+    akjakjlajkljadsfk: 1234,
+  }
+  const expectedData = {
+    username: "abcd",
+  }
+  expect(parseNewUser(userData)).toStrictEqual(expectedData)
+})
