@@ -3,23 +3,25 @@ import { z } from "zod";
 
 export const userSchema = z.object({
     _id: z.string(),
-    username: z.string(),
-    user_description: z.string().optional(),
-    user_tags: z.array(z.string()).optional(),
-    github_account_link: z.string().optional(),
-    following: z.array(z.number()),
-    followed_by: z.array(z.number()),
-    follower_count: z.number(),
-    authored_ideas: z.array(z.number()),
-    owned_projects: z.array(z.number()),
-    watched_projects: z.array(z.number()),
+    username: z.string().min(3).max(18),
+    user_description: z.string().max(120).optional(),
+    user_tags: z.array(z.string()).max(12).optional(),
+    github_account_link: z.string().startsWith("https://github.com/").optional(),
+    following: z.array(z.number()).max(10), //Should be at most 10 for speed
+    followed_by: z.array(z.number()).max(10), //So the query should have Max(10)
+    follower_count: z.number().min(0),
+    authored_ideas: z.array(z.number()).min(0),
+    owned_projects: z.array(z.number()).min(0),
+    watched_projects: z.array(z.number()).min(0),
     createdAt: z.date(),
     updatedAt: z.date()
 });
 
 export const newUserSchema = z.object({
-    username: z.string(),
-    user_description: z.string().optional(),
-    user_tags: z.array(z.string()).optional(),
-    github_account_link: z.string().optional()
+    username: z.string().min(3).max(18),
+    user_description: z.string().max(120).optional(),
+    user_tags: z.array(z.string()).max(12).optional(),
+    github_account_link: z.string().startsWith("https://github.com/").optional()
 });
+
+export type INewUserSchema = z.input<typeof newUserSchema>

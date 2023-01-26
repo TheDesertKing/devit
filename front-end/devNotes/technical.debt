@@ -1,3 +1,6 @@
+In order to avoid long query response time:
+	query for "followed_by" & "following" should have MAX(10)
+
 Because I want projects and ideas IDs to be sequential,
 if one is deleted, I need to display a special
 "Project|Idea Deleted|Privated" page.
