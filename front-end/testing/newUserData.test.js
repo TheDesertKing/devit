@@ -1,4 +1,6 @@
-const { parseNewUser } = require("@/api/db/user.ts")
+// const { parseNewUser } = require("@/api/db/user.ts")
+// import { parseNewUser } from "@/api/db/user"
+import { parseNewUser } from "../src/pages/api/db/user"
 
 describe("parseNewUser function for POST requests to /api/db/user endpoint", () => {
   test("Parsing new user with bad data", () => {

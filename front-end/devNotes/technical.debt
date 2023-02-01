@@ -16,3 +16,11 @@ move mongoDB string from file to server env var
 remove all:
 " if(process.env.NODE_ENV == "development") "
 checks.
+
+In order for testing to work, the following lines:
+
+var util= require('util');
+const utf8Encoder = new util.TextEncoder();
+const utf8Decoder = new util.TextDecoder("utf-8", { ignoreBOM: true });
+
+needs to be added to node_modules/whatwg-url/lib/encoding.js
