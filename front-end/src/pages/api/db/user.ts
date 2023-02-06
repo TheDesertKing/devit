@@ -1,6 +1,5 @@
 import startMongoAndGetModels from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
-import { User, NewUser } from "@/types/userInterface"
 import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
 
 
@@ -16,11 +15,6 @@ const parseNewUser = (reqBody: object): INewUserSchema | void => {
   } else { return }
 }
 
-const isContentTypeJSON = (req: NextApiRequest): boolean => {
-  console.log(req.headers['content-type'])
-  return req.headers['content-type'] === 'application/json'
-}
-
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const models = await startMongoAndGetModels()
@@ -33,19 +27,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method == "POST") {
     const newUserData = parseNewUser(req.body)
-    if (typeof newUserData === undefined) {
+    if (newUserData === undefined) {
       panic(res, "Error while parsing form data", 400)
       return
     }
 
 
-    console.log(req.headers['content-type'])
-    // const newUser = await models['user'].create(newUserData)
+    if (req.headers['content-type'] === 'application/json') {
+      await models['user'].create(newUserData)
 
-    if (process.env.NODE_ENV == "development") {
-      res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
+      if (process.env.NODE_ENV == "development") {
+        res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
+        return
+      } else {
+        res.status(200).send("User successfully added")
+        return
+      }
     } else {
-      res.status(200).send("User successfully added")
+      res.setHeader("Accept-Post", "application/json")
+      res.status(415).send("This endpoint only supports data in JSON format")
+      return
     }
   }
 
