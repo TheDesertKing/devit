@@ -4,13 +4,13 @@ I'm trying to lay-out the data needed from a user while he's submitting an idea 
 
 idea_title: text (max 30? chars)
 
-idea_description: MarkUp-text (max 300? chars)
+idea_description: MarkUp-text (max 140? chars)
 
 idea_tags: text - multi-choice categories (names of software, apis, tools, concepts, programming languages) --at least 3!
 
-subbmiter_id: UserID
+submiter_id: UserID
 
-related_projects: [ProjectID]
+*related_projects: [ProjectID]
 
 *related_ideas: [numbers] (corresponding to the idea's ids)
 

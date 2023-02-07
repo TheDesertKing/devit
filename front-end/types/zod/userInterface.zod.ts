@@ -5,7 +5,7 @@ export const userSchema = z.object({
     _id: z.string(),
     username: z.string().min(3).max(18),
     user_description: z.string().max(120).optional(),
-    user_tags: z.array(z.string()).max(12).optional(),
+    user_tags: z.array(z.string()).max(7).optional(),
     github_account_link: z.string().startsWith("https://github.com/").optional(),
     following: z.array(z.number()).max(10), //Should be at most 10 for speed
     followed_by: z.array(z.number()).max(10), //So the query should have Max(10)

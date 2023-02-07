@@ -1,11 +1,7 @@
-import startMongoAndGetModels from "@/lib/startMongo"
+import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
 import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
 
-
-const panic = (res: NextApiResponse, errorMessage: string, errorCode: number = 400): void => {
-  res.status(errorCode).send(errorMessage)
-}
 
 const parseNewUser = (reqBody: object): INewUserSchema | void => {
   const parsedData = newUserSchema.safeParse(reqBody)
@@ -17,35 +13,36 @@ const parseNewUser = (reqBody: object): INewUserSchema | void => {
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const models = await startMongoAndGetModels()
+  const models = await startMongo()
 
   if (req.method == "GET") {
     //get document by user id
     //return user data obj
+
   }
 
 
   if (req.method == "POST") {
     const newUserData = parseNewUser(req.body)
     if (newUserData === undefined) {
-      panic(res, "Error while parsing form data", 400)
+      res.status(400).send("Error while parsing form data")
       return
     }
 
 
-    if (req.headers['content-type'] === 'application/json') {
-      await models['user'].create(newUserData)
-
-      if (process.env.NODE_ENV == "development") {
-        res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
-        return
-      } else {
-        res.status(200).send("User successfully added")
-        return
-      }
-    } else {
+    if (req.headers['content-type'] !== 'application/json') {
       res.setHeader("Accept-Post", "application/json")
       res.status(415).send("This endpoint only supports data in JSON format")
+      return
+    }
+
+    await models['user'].create(newUserData)
+
+    if (process.env.NODE_ENV == "development") {
+      res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
+      return
+    } else {
+      res.status(200).send("User successfully added")
       return
     }
   }
@@ -63,4 +60,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 }
 
-export { parseNewUser }
+export { parseNewUser } //Exporting for unit-testing

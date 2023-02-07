@@ -1,4 +1,13 @@
-Change type from number to ObjectID of mongoose
+
+Create api/db/project endpoint
+Create api/db/idea endpoint
+
+Integrate NextAuth into the project
+
+Finish api/db/user endpoint
+
+refractor userInterface.zod.ts to use the zod.extend
+{newUserSchema.extend()}
 
 Create User profile.
 Create Admin profile.

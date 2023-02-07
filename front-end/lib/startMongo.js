@@ -3,7 +3,7 @@ import idea from "@/models/Idea"
 import user from "@/models/User"
 import mongoose from "mongoose"
 
-const startMongoAndGetModels = async () => {
+const startMongo = async () => {
   if (!mongoose.connection.readyState) {
     await mongoose
       .connect(process.env.MONGODB_STRING)
@@ -12,4 +12,4 @@ const startMongoAndGetModels = async () => {
   return { user: user, idea: idea, project: project }
 }
 
-export default startMongoAndGetModels
+export default startMongo
