@@ -1,8 +1,8 @@
 // const { parseNewUser } = require("@/api/db/user.ts")
 // import { parseNewUser } from "@/api/db/user"
-import { parseNewUser } from "../src/pages/api/db/user"
+import { parseNewUser } from "../lib/parse/parseNewUser"
 
-describe("parseNewUser function for POST requests to /api/db/user endpoint", () => {
+describe("Data validation for new user submitted via POST to /api/db/user", () => {
   test("Parsing new user with bad data", () => {
     expect(parseNewUser({ abc: "efg" })).toBe(undefined)
   })

@@ -7,7 +7,7 @@ export const newIdeaSchema = z.object({
 	submitter_id: z.string(),
 	related_ideas: z.array(z.string()).max(4).optional(),
 	related_projects: z.array(z.string()).max(4).optional(),
-	links: z.array(z.string().url()).max(4),
+	links: z.array(z.string().url()).max(4).optional(),
 })
 
 export const ideaSchema = newIdeaSchema.extend({

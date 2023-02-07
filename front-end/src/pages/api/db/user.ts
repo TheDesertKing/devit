@@ -1,15 +1,7 @@
 import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
-import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
-
-
-const parseNewUser = (reqBody: object): INewUserSchema | void => {
-  const parsedData = newUserSchema.safeParse(reqBody)
-  if (parsedData["success"]) {
-    const newUserData: INewUserSchema = parsedData["data"];
-    return newUserData
-  } else { return }
-}
+import { parseNewUser } from "@/lib/parse/parseNewUser"
+// import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -59,5 +51,3 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     //remove document by id
   }
 }
-
-export { parseNewUser } //Exporting for unit-testing
