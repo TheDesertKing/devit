@@ -1,0 +1,7 @@
+# Testing idea creation endpoint:
+# POST /api/db/user
+
+POST http://localhost:3000/api/db/idea
+content-type: application/json
+
+{"idea_title":"helloasdfw","submitter_id":"idididi","idea_tags":["toast","teast"]}

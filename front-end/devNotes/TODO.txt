@@ -3,8 +3,11 @@ Create api/db/project endpoint
 Create api/db/idea endpoint
 
 Integrate NextAuth into the project
+Then, make submitter_id secure, not client-side
 
 Finish api/db/user endpoint
+
+Create validation for ObjectID of related projects/ideas/users
 
 refractor userInterface.zod.ts to use the zod.extend
 {newUserSchema.extend()}

@@ -42,7 +42,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", "testing/newUserData.test.js"
-, "util/ts-to-zod.mjs", "testing/newUserData.mts"  ],
+, "util/ts-to-zod.mjs", "testing/newUserData.mts", "src/components/unauthenticated.jsx"  ],
   "exclude": [
     "node_modules"
   ]

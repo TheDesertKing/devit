@@ -8,13 +8,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const models = await startMongo()
 
 	if (req.method == "GET") {
-		//get document by user id
-		//return user data obj
-
+		//* Return all ideas authored by the user (max 10)
+		// const ideas = models["idea"].find({submitter_id: userID})
 	}
 
 
 	if (req.method == "POST") {
+		//* Create and save a new idea
+
 		const newIdeaData = parseNewIdea(req.body)
 		if (newIdeaData === undefined) {
 			res.status(400).send("Error while parsing form data")

@@ -7,17 +7,18 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+
     user_description: {
       type: String,
-      required: true,
+      default: "Derp! default description",
     },
+
     user_tags: {
       type: [String],
       required: true,
     },
-    github_account_link: String,
 
-    //client side generated
+    github_account_link: String,
 
     //server side generated
 
@@ -25,22 +26,27 @@ const userSchema = new mongoose.Schema(
       type: [Number],
       default: [],
     },
+
     followed_by: {
       type: [Number],
       default: [],
     },
+
     follower_count: {
       type: Number,
       default: 0,
     },
+
     authored_ideas: {
       type: [Number],
       default: [],
     },
+
     owned_projects: {
       type: [Number],
       default: [],
     },
+
     watched_projects: {
       type: [Number],
       default: [],
