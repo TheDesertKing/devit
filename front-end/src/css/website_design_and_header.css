@@ -8,8 +8,9 @@
 }
 
 body {
-  background: -o-linear-gradient(210deg, #80ffdb90, #7afbdd90, #74f6de90, #6ff2df90, #6beddf90, #68e8e090, #66e4df90, #64dfdf90);
-  background: linear-gradient(240deg, #80ffdb90, #7afbdd90, #74f6de90, #6ff2df90, #6beddf90, #68e8e090, #66e4df90, #64dfdf90);
+  background: -o-linear-gradient(210deg, rgba(128, 255, 219, 0.7), rgba(122, 251, 221, 0.79), rgba(116, 246, 222, 0.88), rgba(111, 242, 223, 0.97), #6beddf, #68e8e0, #66e4df, #64dfdf);
+  background: linear-gradient(240deg, rgba(128, 255, 219, 0.7), rgba(122, 251, 221, 0.79), rgba(116, 246, 222, 0.88), rgba(111, 242, 223, 0.97), #6beddf, #68e8e0, #66e4df, #64dfdf);
+  font: rgba(128, 255, 219, 0.7), rgba(122, 251, 221, 0.79), rgba(116, 246, 222, 0.88), rgba(111, 242, 223, 0.97), #6beddf, #68e8e0, #66e4df, #64dfdf;
 }
 
 .header {
