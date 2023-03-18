@@ -26,6 +26,23 @@ $background-colors: #80ffdb, #7afbdd, #74f6de, #6ff2df, #6beddf, #68e8e0,
   @each $color in $color-list {
     $new-color: rgba($color, $alpha: $opacity + $extra-opacity);
     $extra-opacity: $extra-opacity - $degree;
+    $new-color: rgba($color, $alpha: $opacity);
+    $new-color-list: list.append(
+      $new-color-list,
+      $new-color,
+      $separator: comma
+    );
+  }
+  @return $new-color-list;
+}
+
+@function set-opacity-gradient($color-list, $opacity, $degree) {
+  $new-color-list: ();
+  $extra-opacity: $degree * (length($color-list)-1);
+  $opacity: $opacity - $extra-opacity;
+  @each $color in $color-list {
+    $new-color: rgba($color, $alpha: $opacity + $extra-opacity);
+    $extra-opacity: $extra-opacity - $degree;
     $new-color-list: list.append(
       $new-color-list,
       $new-color,
@@ -40,12 +57,6 @@ $background-colors-with-opacity: set-opacity(
   $background-opacity
 );
 
-$background-colors-with-opacity-gradient: set-opacity-gradient(
-  $background-colors,
-  1,
-  -0.09
-);
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -54,7 +65,7 @@ $background-colors-with-opacity-gradient: set-opacity-gradient(
 }
 
 body {
-  background: linear-gradient(240deg, $background-colors-with-opacity-gradient);
+  background: linear-gradient(240deg, $background-colors-with-opacity);
 }
 
 .header {
