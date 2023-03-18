@@ -8,8 +8,8 @@
 }
 
 body {
-  background: -o-linear-gradient(210deg, #80ffdb90, #7afbdd90, #74f6de90, #6ff2df90, #6beddf90, #68e8e090, #66e4df90, #64dfdf90);
-  background: linear-gradient(240deg, #80ffdb90, #7afbdd90, #74f6de90, #6ff2df90, #6beddf90, #68e8e090, #66e4df90, #64dfdf90);
+  background: -o-linear-gradient(210deg, #80ffdb, #7afbdd, #74f6de, #6ff2df, #6beddf, #68e8e0, #66e4df, #64dfdf);
+  background: linear-gradient(240deg, #80ffdb, #7afbdd, #74f6de, #6ff2df, #6beddf, #68e8e0, #66e4df, #64dfdf);
 }
 
 .header {
