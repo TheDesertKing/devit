@@ -157,6 +157,55 @@ body {
   justify-content: right;
 }
 
+.padding-2-percent {
+  padding: 2%;
+}
+
+.login-button {
+  background: linear-gradient(
+    180deg,
+    #ffa21f,
+    #f8a90a,
+    #f0af00,
+    #e7b600,
+    #ddbd00,
+    #d2c300,
+    #c5c900,
+    #b7cf00,
+    #a8d500,
+    #97db00,
+    #83e000
+  );
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: #080808;
+  font-weight: 600;
+  font-size: large;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.6%;
+  user-select: none;
+
+  transition: box-shadow 0.15s, transform 0.15s;
+  will-change: box-shadow, transform;
+  &:focus {
+    box-shadow: #d5e03c 0 0 0 2.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3ce073 0 -3px 0 inset;
+  }
+  &:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #f0b000cb 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: #6ff2de80 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+}
+
 .blur-background {
   height: 100%;
   background-color: rgba($color: #fff, $alpha: 0.5);

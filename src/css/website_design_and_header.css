@@ -112,6 +112,57 @@ body {
           justify-content: right;
 }
 
+.padding-2-percent {
+  padding: 2%;
+}
+
+.login-button {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffa21f), color-stop(#f8a90a), color-stop(#f0af00), color-stop(#e7b600), color-stop(#ddbd00), color-stop(#d2c300), color-stop(#c5c900), color-stop(#b7cf00), color-stop(#a8d500), color-stop(#97db00), to(#83e000));
+  background: -o-linear-gradient(top, #ffa21f, #f8a90a, #f0af00, #e7b600, #ddbd00, #d2c300, #c5c900, #b7cf00, #a8d500, #97db00, #83e000);
+  background: linear-gradient(180deg, #ffa21f, #f8a90a, #f0af00, #e7b600, #ddbd00, #d2c300, #c5c900, #b7cf00, #a8d500, #97db00, #83e000);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+          box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: #080808;
+  font-weight: 600;
+  font-size: large;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.6%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: -webkit-box-shadow 0.15s, -webkit-transform 0.15s;
+  transition: -webkit-box-shadow 0.15s, -webkit-transform 0.15s;
+  -o-transition: box-shadow 0.15s, transform 0.15s;
+  transition: box-shadow 0.15s, transform 0.15s;
+  transition: box-shadow 0.15s, transform 0.15s, -webkit-box-shadow 0.15s, -webkit-transform 0.15s;
+  will-change: box-shadow, transform;
+}
+.login-button:focus {
+  -webkit-box-shadow: #d5e03c 0 0 0 2.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3ce073 0 -3px 0 inset;
+          box-shadow: #d5e03c 0 0 0 2.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3ce073 0 -3px 0 inset;
+}
+.login-button:hover {
+  -webkit-box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(240, 176, 0, 0.7960784314) 0 -3px 0 inset;
+          box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(240, 176, 0, 0.7960784314) 0 -3px 0 inset;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+.login-button:active {
+  -webkit-box-shadow: rgba(111, 242, 222, 0.5019607843) 0 3px 7px inset;
+          box-shadow: rgba(111, 242, 222, 0.5019607843) 0 3px 7px inset;
+  -webkit-transform: translateY(2px);
+      -ms-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
 .blur-background {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5);
@@ -124,11 +175,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.loading-animation {
-  height: 40vh;
-  width: 40vw;
 }
 
 .login {
