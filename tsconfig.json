@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "components/*"
+        "src/components/*"
       ],
       "@/lib/*": [
         "lib/*"
@@ -39,10 +39,11 @@
     "target": "es5"
   },
   "include": [
+    "additional.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", "testing/newUserData.test.js"
-, "util/ts-to-zod.mjs", "testing/newUserData.mts", "src/components/unauthenticated.jsx"  ],
+, "util/ts-to-zod.mjs", "testing/newUserData.mts", "src/components/unauthenticated.jsx", "src/pages/api/auth/[...nextauth].ts", "src/pages/api/auth/signin.jsx"  ],
   "exclude": [
     "node_modules"
   ]

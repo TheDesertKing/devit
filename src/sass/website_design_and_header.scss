@@ -64,8 +64,22 @@ $background-colors-with-opacity: set-opacity(
   list-style-type: none;
 }
 
+html,
+body,
+main,
+div#__next {
+  height: 100%;
+  overflow-y: hidden;
+}
+
 body {
   background: linear-gradient(240deg, $background-colors-with-opacity);
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -76,13 +90,13 @@ body {
 }
 
 .logo {
-  grid-area: "logo";
+  grid-area: logo;
 }
 
 .nav-bar {
   width: 100%;
   display: flex;
-  grid-area: "nav-bar";
+  grid-area: nav-bar;
   justify-content: center;
   align-items: center;
   & > li > * {
@@ -141,4 +155,38 @@ body {
   display: flex;
   width: 100%;
   justify-content: right;
+}
+
+.blur-background {
+  height: 100%;
+  background-color: rgba($color: #fff, $alpha: 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  opacity: 0.8;
+  width: 70vw;
+  height: 70vh;
+  border-radius: 10rem;
+  background-image: linear-gradient(to right, #642b73, #c6426e);
+  display: block;
+  // &::before {
+  //   display: inline-block;
+  //   background-image: linear-gradient(to right, #642b73, #c6426e);
+  //   width: 70vw;
+  //   height: 60vh;
+  // }
+  // &::after {
+  //   display: inline-block;
+  //   background-image: linear-gradient(
+  //     to right,
+  //     rgba($color: #fff, $alpha: 0.05),
+  //     rgba($color: #fff, $alpha: 0.25),
+  //     rgba($color: #fff, $alpha: 0.05)
+  //   );
+  //   width: 10vw;
+  //   height: 100%;
+  // }
 }
