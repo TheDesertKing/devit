@@ -22,8 +22,6 @@ SUBMITTING PROJECT & VICE VERSA
 
 Add file upload functionality support, for image uploading in idea submission.
 
-Integrate support for OAuth.
-
 Integrate repository data from GitHub.
 Integrate repository data from GitLab. (not must)
 

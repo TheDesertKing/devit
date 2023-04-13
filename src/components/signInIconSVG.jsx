@@ -1,4 +1,4 @@
-export const SignInIconSVG = ({ providerName }: { providerName: string }) => {
+export const SignInIconSVG = ({ providerName }) => {
   const icons = {
     GitHub: (
       <svg
@@ -13,7 +13,6 @@ export const SignInIconSVG = ({ providerName }: { providerName: string }) => {
     Credentials: <p>CredentialsIcon</p>,
   }
   if (icons.hasOwnProperty(providerName)) {
-    //@ts-expect-error `icons` object requires a literal not string
     return icons[providerName]
   }
 }
