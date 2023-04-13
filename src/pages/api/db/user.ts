@@ -1,8 +1,8 @@
 import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
 import { parseNewUser } from "@/lib/parse/parseNewUser"
+import mongoose from "mongoose"
 // import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
-
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const models = await startMongo()
@@ -10,6 +10,33 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method == "GET") {
     //get document by user id
     //return user data obj
+    const lookupID = req.query["id"]
+    console.log(typeof lookupID)
+    console.log("llol", lookupID)
+
+    if (lookupID === undefined) {
+      res.status(400).send("Missing `id` url query parameter")
+      return
+    }
+
+    if (typeof lookupID === "object") {
+      // in case of GET ... /db/user?id=123&id=321 -> lookupID = ['123','321']
+      res.status(400).send("Multiple `id` url query parameters aren't allowed")
+      return
+    }
+
+    if (!mongoose.Types.ObjectId.isValid(lookupID)) {
+      res.status(400).send("The `id` url query parameter isn't in mongoDB ObjectID format")
+      return
+    }
+
+    const userData = await models["user"].findById(lookupID).exec()
+    if (userData === null) {
+      res.status(400).send("User not found")
+      return
+    }
+
+    res.status(200).json(userData)
 
   }
 
@@ -32,10 +59,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (process.env.NODE_ENV == "development") {
       res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
-      return
     } else {
       res.status(200).send("User successfully added")
-      return
     }
   }
 

@@ -1,6 +1,6 @@
 import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
-import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
+import { parseNewUser } from "@/lib/parse/parseNewUser"
 
 
 
@@ -26,10 +26,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	if (req.method == "POST") {
 		const newUserData = parseNewUser(req.body)
 		if (newUserData === undefined) {
-			res.status(400).send("Error while parsing form data")
+			res.status(400).send("Error while parsing data")
 			return
 		}
-
 
 		if (req.headers['content-type'] !== 'application/json') {
 			res.setHeader("Accept-Post", "application/json")
@@ -47,19 +46,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			return
 		}
 	}
-}
+
+	if (req.method == "PUT") {
+		//get document by user id
+		//change document according to changed data
+		//insert it to db
+	}
 
 
-if (req.method == "PUT") {
-	//get document by user id
-	//change document according to changed data
-	//insert it to db
+	if (req.method == "DELETE") {
+		//remove document by id
+	}
 }
 
-
-if (req.method == "DELETE") {
-	//remove document by id
-}
-}
 
 export { parseNewUser }

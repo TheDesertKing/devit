@@ -1,7 +1,6 @@
 import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
 import { parseNewIdea } from "@/lib/parse/parseNewIdea"
-// import { ideaSchema, newIdeaSchema, INewIdeaSchema } from "@/types/zod/ideaInterface.zod"
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -14,19 +13,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
 	if (req.method == "POST") {
-		//* Create and save a new idea
-
 		const newIdeaData = parseNewIdea(req.body)
 		if (newIdeaData === undefined) {
-			res.status(400).send("Error while parsing form data")
+			res.status(400).send("Error while parsing data")
 			return
 		}
-
-
 
 		if (req.headers['content-type'] !== 'application/json') {
 			res.setHeader("Accept-Post", "application/json")
 			res.status(415).send("This endpoint only supports data in JSON format")
+			return
 		}
 
 		await models['idea'].create(newIdeaData)

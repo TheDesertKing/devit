@@ -19,5 +19,7 @@ const projectChema = new mongoose.Schema({
   // company_support: Number, Not yet implemented! not required
 })
 
-module.exports =
-  mongoose.models.Project || mongoose.model("Project", projectChema)
+// module.exports =
+//   mongoose.models.Project || mongoose.model("Project", projectChema)
+export default mongoose.models.Project ||
+  mongoose.model("Project", projectChema)
