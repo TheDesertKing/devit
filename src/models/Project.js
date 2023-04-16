@@ -1,23 +1,55 @@
 import mongoose from "mongoose"
 
-const projectChema = new mongoose.Schema({
-  //user submitted
-  project_name: String,
-  project_description: String,
-  // project_tags: [String], Not yet implemented! not required
-  github_repo_link: String,
+const projectChema = new mongoose.Schema(
+  {
+    //user submitted
+    project_name: {
+      type: String,
+      required: true,
+      minLength: 4,
+      maxLength: 40,
+    },
 
-  //client side generated
-  idea_id: Number,
-  submitter_id: Number,
+    project_description: {
+      type: String,
+      maxLength: 140,
+      default: "Derp! default description",
+    },
 
-  //server side generated
-  project_id: Number,
-  programming_languages: [String],
-  date_created: Date,
-  date_changed: Date,
-  // company_support: Number, Not yet implemented! not required
-})
+    project_tags: {
+      type: [String],
+      default: [],
+      validate: (arr) => arr.length <= 7,
+    },
+
+    github_repo_link: String,
+
+    related_ideas: {
+      type: [String],
+      default: [],
+      validate: (arr) => arr.length <= 4,
+    },
+
+    submitter_id: {
+      type: String,
+      required: true,
+    },
+
+    //server side generated
+    project_id: {
+      type: Number,
+      required: true,
+    },
+
+    programming_languages: {
+      type: [String],
+      default: [],
+    },
+
+    // company_support: Number, Not yet implemented! not required
+  },
+  { timestamps: true }
+)
 
 // module.exports =
 //   mongoose.models.Project || mongoose.model("Project", projectChema)

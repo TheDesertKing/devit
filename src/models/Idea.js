@@ -6,13 +6,8 @@ const ideaSchema = new mongoose.Schema(
     idea_title: {
       type: String,
       required: true,
-      minLength: 8,
+      minLength: 4,
       maxLength: 40,
-    },
-
-    submitter_id: {
-      type: String,
-      required: true,
     },
 
     idea_description: {
@@ -27,11 +22,11 @@ const ideaSchema = new mongoose.Schema(
       validate: (arr) => arr.length <= 7,
     },
 
-    related_ideas: {
-      type: [String],
-      default: [],
-      validate: (arr) => arr.length <= 4,
-    },
+    // related_ideas: {
+    //   type: [String],
+    //   default: [],
+    //   validate: (arr) => arr.length <= 4,
+    // }, Not Yet Implemeted!
 
     related_projects: {
       type: [String],
@@ -46,6 +41,15 @@ const ideaSchema = new mongoose.Schema(
     },
 
     //server side generated
+    submitter_id: {
+      type: String,
+      required: true,
+    },
+
+    idea_id: {
+      type: Number,
+      required: true,
+    },
 
     // company_support: Number, Not yet implemented! not required
   },

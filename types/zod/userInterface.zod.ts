@@ -18,10 +18,13 @@ export const userSchema = z.object({
 });
 
 export const newUserSchema = z.object({
+    //required
     username: z.string().min(3).max(18),
+    //optional
     user_description: z.string().max(120).optional(),
-    user_tags: z.array(z.string()).max(12).optional(),
+    user_tags: z.string().array().max(12).optional(),
     github_account_link: z.string().startsWith("https://github.com/").optional()
+
 });
 
 export type INewUserSchema = z.input<typeof newUserSchema>
