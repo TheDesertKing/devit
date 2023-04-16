@@ -1,7 +1,7 @@
 # Testing user creation endpoint:
 # POST /api/db/user
 
-POST http://localhost:3000/api/db/user
+POST http://localhost:3000/api/db/project
 content-type: application/json
 
 {"username":"banana","user_description":"wertest","user_tags":["toast","teast"]}
