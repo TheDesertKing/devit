@@ -1,9 +1,3 @@
-# Testing user data fetching endpoint:
-# GET /api/db/user?id=USER_ID
-
-GET http://localhost:3000/api/db/user?id=63da5cc1d0bfc15234cdf9c7
-
-
 # Testing user creation endpoint:
 # POST /api/db/user
 
@@ -11,4 +5,3 @@ POST http://localhost:3000/api/db/user
 content-type: application/json
 
 {"user_description":"wertest","user_tags":["toast","teast"]}
-

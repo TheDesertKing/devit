@@ -1,0 +1,8 @@
+# Testing user data fetching endpoint:
+# GET /api/db/user?id=USER_ID
+
+GET http://localhost:3000/api/db/user/63da5cc1d0bfc15234cdf9c7
+
+GET http://localhost:3000/api/db/user?id=63da5cc1d0bfc15234cdf9c7
+
+
