@@ -1,3 +1,15 @@
+Fix HTTP endpoint tests {
+	POST projects is a copy of POST user
+	missing POST idea
+}
+
+Fix GET of projects {
+	in [id].ts file, fix the fetching of data from db
+}
+
+Fix POST endpoint of projects {
+	the index.ts file is a clear copy of the user endpoint
+}
 
 Create api/db/project endpoint
 Create api/db/idea endpoint

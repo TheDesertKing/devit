@@ -4,4 +4,9 @@
 POST http://localhost:3000/api/db/project
 content-type: application/json
 
-{"username":"banana","user_description":"wertest","user_tags":["toast","teast"]}
+{"project_name":"avokadu","github_repo_link":"https://github.com/abc/avukadu","submitter_id":"abc"}
+
+	# project_name: z.string().min(4).max(40),
+	# github_repo_link: z.string().url().startsWith("https://github.com/"),
+	# submitter_id: z.string(),
+	# project_id: z.number(),

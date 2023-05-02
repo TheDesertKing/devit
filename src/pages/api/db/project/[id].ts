@@ -1,7 +1,6 @@
 import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
 import { parseNewUser } from "@/lib/parse/parseNewUser"
-import mongoose from "mongoose"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const models = await startMongo()
@@ -15,15 +14,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		}
 
 		if (typeof lookupID === "object") {
-			// in case of GET ... /db/user?id=123&id=321 -> lookupID = ['123','321']
+			// in case of GET ... /db/project?id=123&id=321 -> lookupID = ['123','321']
 			res.status(400).send("Multiple `id` url query parameters aren't allowed")
 			return
 		}
 
-		const userData = await models["user"].find({ project_id: lookupID }).exec()
+		// const userData = await models["project"].find({ project_id: lookupID }).exec()
+		const userData = await models["project"].findOne({ project_name: "banana" }).exec()
+		// console.log(await models["project"].listIndexes())
 		console.log(userData)
 		if (userData === null) {
-			res.status(400).send("User not found")
+			res.status(400).send("Project not found")
 			return
 		}
 
