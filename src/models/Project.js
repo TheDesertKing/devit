@@ -38,7 +38,6 @@ const projectChema = new mongoose.Schema(
     //server side generated
     project_id: {
       type: Number,
-      required: true,
     },
 
     programming_languages: {

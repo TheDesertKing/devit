@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const newIdeaSchema = z.object({
+export const newProjectSchema = z.object({
 	//required
 	project_name: z.string().min(4).max(40),
 	github_repo_link: z.string().url().startsWith("https://github.com/"),
@@ -11,11 +11,11 @@ export const newIdeaSchema = z.object({
 	programing_languages: z.string().array().optional()
 })
 
-export const ideaSchema = newIdeaSchema.extend({
+export const projectSchema = newProjectSchema.extend({
 	_id: z.string(),
 	createdAt: z.date(),
 	updatedAt: z.date(),
 	project_id: z.number(),
 })
 
-export type INewIdeaSchema = z.input<typeof newIdeaSchema>
+export type INewProjectSchema = z.input<typeof newProjectSchema>

@@ -1,12 +1,24 @@
 # Testing user creation endpoint:
 # POST /api/db/user
 
+# Correct request, invalid submitter_id
 POST http://localhost:3000/api/db/project
 content-type: application/json
 
-{"project_name":"avokadu","github_repo_link":"https://github.com/abc/avukadu","submitter_id":"abc"}
+{"project_name":"tomatu","github_repo_link":"https://github.com/abc/tomatu","submitter_id":"def"}
 
-	# project_name: z.string().min(4).max(40),
-	# github_repo_link: z.string().url().startsWith("https://github.com/"),
-	# submitter_id: z.string(),
-	# project_id: z.number(),
+###
+
+# Bad request, missing submitter_id
+POST http://localhost:3000/api/db/project
+content-type: application/json
+
+{"project_name":"avokadu","github_repo_link":"https://github.com/abc/avukadu"}
+
+###
+
+# Bad request, wrong endpoint
+POST http://localhost:3000/api/db/project/123
+content-type: application/json
+
+{"project_name":"avokadu","github_repo_link":"https://github.com/abc/avukadu","submitter_id":"abc"}

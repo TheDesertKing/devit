@@ -17,7 +17,8 @@ Create api/db/idea endpoint
 Integrate NextAuth into the project
 Then, make submitter_id secure, not client-side
 
-Finish api/db/user endpoint
+Finish api/db/* endpoints
+Add CORS for said endpoints
 
 Create validation for ObjectID of related projects/ideas/users
 

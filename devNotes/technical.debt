@@ -11,11 +11,12 @@ or organizations?
 
 We need to create tests for DB
 
-LAST STEPS PRE-PRODUCTION:
+***LAST STEPS PRE-PRODUCTION:
 move mongoDB string from file to server env var
 remove all:
 " if(process.env.NODE_ENV == "development") "
 checks.
+Migrate app to using the `Kongo` DB rather than `test` 
 
 In order for testing to work, the following lines:
 

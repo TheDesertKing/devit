@@ -1,13 +1,13 @@
+import { parseNewProject } from "@/lib/parse/parseNewProject"
 import startMongo from "@/lib/startMongo"
 import { NextApiRequest, NextApiResponse } from 'next' // Types
-import { parseNewUser } from "@/lib/parse/parseNewUser"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const models = await startMongo()
 
 	if (req.method == "POST") {
-		const newUserData = parseNewUser(req.body)
-		if (newUserData === undefined) {
+		const newProjectData = parseNewProject(req.body)
+		if (newProjectData === undefined) {
 			res.status(400).send("Error while parsing data")
 			return
 		}
@@ -18,14 +18,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			return
 		}
 
-		await models['user'].create(newUserData)
+		await models['project'].create(newProjectData)
 
 		if (process.env.NODE_ENV == "development") {
-			res.status(200).send(JSON.stringify(newUserData) + typeof (newUserData))
+			res.status(200).send(JSON.stringify(newProjectData) + typeof (newProjectData))
 			return
 		} else {
-			res.status(200).send("User successfully added")
+			res.status(200).send("Project successfully added")
 			return
 		}
 	}
+	res.status(400).send("Something went wrong!")
 }

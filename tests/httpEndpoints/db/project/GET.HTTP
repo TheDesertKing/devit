@@ -1,7 +1,25 @@
 # Testing user data fetching endpoint:
 # GET /api/db/user?id=USER_ID
 
+# Correct request
 GET http://localhost:3000/api/db/project/1
 
+###
 
+# Bad request, no such project_id
+GET http://localhost:3000/api/db/project/-1
 
+###
+
+# Bad request, wrong request parameter type
+GET http://localhost:3000/api/db/project/abc
+
+###
+
+# Bad request, missing request parameter
+GET http://localhost:3000/api/db/project
+
+###
+
+# Bad request, missing url parameter 
+GET http://localhost:3000/api/db/project?id=

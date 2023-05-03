@@ -19,16 +19,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			return
 		}
 
-		// const userData = await models["project"].find({ project_id: lookupID }).exec()
-		const userData = await models["project"].findOne({ project_name: "banana" }).exec()
-		// console.log(await models["project"].listIndexes())
-		console.log(userData)
-		if (userData === null) {
+		if (!Number.isInteger(parseInt(lookupID))) {
+			res.status(400).send("`id` url query must be an integer")
+			return
+		}
+
+		const projectData = await models["project"].findOne({ project_id: lookupID }).exec()
+		console.log(projectData)
+		if (projectData === null) {
 			res.status(400).send("Project not found")
 			return
 		}
 
-		res.status(200).json(userData)
+		res.status(200).json(projectData)
+		return
 	}
 
 
@@ -42,6 +46,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	if (req.method == "DELETE") {
 		//remove document by id
 	}
+
+	res.status(400).send("Something went wrong!")
 }
 
 
