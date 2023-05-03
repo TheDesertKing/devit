@@ -8,8 +8,8 @@ Login w/google and friends
 Connect User to GitHub
 Search page w/searching by tags
 
-
 #Core for full app:
+Add Email Provider for NextAuth
 Explore page w/explore by tags
 Score/Credit system, like stackoverflow
 

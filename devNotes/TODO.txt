@@ -21,9 +21,6 @@ Finish api/db/user endpoint
 
 Create validation for ObjectID of related projects/ideas/users
 
-refractor userInterface.zod.ts to use the zod.extend
-{newUserSchema.extend()}
-
 Create User profile.
 Create Admin profile.
 
