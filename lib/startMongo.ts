@@ -4,15 +4,17 @@ import user from "@/models/User"
 import mongoose from "mongoose"
 
 const startMongo = async () => {
-
   if (!mongoose.connection.readyState) {
-    mongoose.set('strictQuery', false)
-    mongoose.set('sanitizeFilter', true);
+    mongoose.set("strictQuery", false)
+    mongoose.set("sanitizeFilter", true)
     await mongoose
       .connect(process.env.MONGODB_STRING)
       .catch((error) => console.log("MongoDB connection error: ", error))
   }
+
   return { user: user, idea: idea, project: project }
 }
 
+type IModels = Awaited<ReturnType<typeof startMongo>>
+export type { IModels }
 export default startMongo
