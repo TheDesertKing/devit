@@ -37,4 +37,6 @@ Integrate repository data from GitLab. (not must)
 
 Design index page lay-out.
 
+Automate the testing process
+
 Document the project.
