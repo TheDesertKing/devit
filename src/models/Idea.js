@@ -8,6 +8,13 @@ const ideaSchema = new mongoose.Schema(
       required: true,
       minLength: 4,
       maxLength: 40,
+      unique: true,
+      index: true,
+    },
+
+    submitter_id: {
+      type: String,
+      required: true,
     },
 
     idea_description: {
@@ -41,14 +48,8 @@ const ideaSchema = new mongoose.Schema(
     },
 
     //server side generated
-    submitter_id: {
-      type: String,
-      required: true,
-    },
-
     idea_id: {
       type: Number,
-      required: true,
     },
 
     // company_support: Number, Not yet implemented! not required

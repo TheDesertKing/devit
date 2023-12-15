@@ -8,6 +8,8 @@ const projectChema = new mongoose.Schema(
       required: true,
       minLength: 4,
       maxLength: 40,
+      unique: true,
+      index: true,
     },
 
     project_description: {
