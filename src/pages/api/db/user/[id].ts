@@ -1,9 +1,12 @@
 import startMongo from "@/lib/startMongo"
-import { NextApiRequest, NextApiResponse } from 'next' // Types
+import { NextApiRequest, NextApiResponse } from "next" // Types
 import mongoose from "mongoose"
 // import { userSchema, newUserSchema, INewUserSchema } from "@/types/zod/userInterface.zod"
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const models = await startMongo()
 
   if (req.method == "GET") {
@@ -21,7 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     if (!mongoose.Types.ObjectId.isValid(lookupID)) {
-      res.status(400).send("The `id` url query parameter isn't in mongoDB ObjectID format")
+      res
+        .status(400)
+        .send("The `id` url query parameter isn't in mongoDB ObjectID format")
       return
     }
 
@@ -34,13 +39,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(200).json(userData)
   }
 
-
   if (req.method == "PUT") {
     //get document by user id
     //change document according to changed data
     //insert it to db
   }
-
 
   if (req.method == "DELETE") {
     //remove document by id

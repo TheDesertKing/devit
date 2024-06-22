@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
+      unique: true,
+      index: true,
     },
 
     user_description: {
@@ -18,7 +20,10 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
 
-    github_account_link: String,
+    github_account_link: {
+      type: String,
+      unique: true,
+    },
 
     //server side generated
 
@@ -56,5 +61,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-// module.exports = mongoose.models.User || mongoose.model("User", userSchema)
+export type IUserSchema = typeof userSchema
+
 export default mongoose.models.User || mongoose.model("User", userSchema)

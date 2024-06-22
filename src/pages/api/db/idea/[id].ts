@@ -1,5 +1,5 @@
 import startMongo from "@/lib/startMongo"
-import { NextApiRequest, NextApiResponse } from "next" // Types
+import { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(
   req: NextApiRequest,
@@ -16,7 +16,7 @@ export default async function handler(
     }
 
     if (typeof lookupID === "object") {
-      // in case of GET ... /db/project?id=123&id=321 -> lookupID = ['123','321']
+      // in case of GET ... /db/idea?id=123&id=321 -> lookupID = ['123','321']
       res.status(400).send("Multiple `id` url query parameters aren't allowed")
       return
     }
@@ -26,28 +26,24 @@ export default async function handler(
       return
     }
 
-    const projectData = await models["project"]
-      .findOne({ project_id: lookupID })
-      .exec()
-    console.log(projectData)
-    if (projectData === null) {
-      res.status(400).send("Project not found")
+    const ideaData = await models["idea"].findOne({ idea_id: lookupID }).exec()
+    console.log(ideaData)
+    if (ideaData === null) {
+      res.status(400).send("Idea not found")
       return
     }
 
-    res.status(200).json(projectData)
+    res.status(200).json(ideaData)
     return
   }
 
   if (req.method == "PUT") {
-    //get document by user id
-    //change document according to changed data
+    //get idea by id
+    //change idea according to changed data
     //insert it to db
   }
 
   if (req.method == "DELETE") {
-    //remove document by id
+    //remove idea by id
   }
-
-  res.status(400).send("Something went wrong!")
 }
