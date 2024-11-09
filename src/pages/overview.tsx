@@ -8,6 +8,14 @@ export default function TestAuth() {
       return <Unauthenticated />
     },
   })
+  //for testing why status is always 'loading'
+  const intervalID = setInterval(() => {
+    console.log(status)
+  }, 1000)
+
+  setTimeout(() => {
+    clearInterval(intervalID)
+  }, 10000)
 
   if (status === "loading") {
     return <p>Hang on there...</p>

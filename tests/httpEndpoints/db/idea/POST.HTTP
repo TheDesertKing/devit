@@ -4,4 +4,4 @@
 POST http://localhost:3000/api/db/idea
 content-type: application/json
 
-{"idea_title":"helloasdfw","submitter_id":"idididi","idea_tags":["toast","teast"]}
+{"idea_title":"helaloasdfw","submitter_id":"idididi","idea_tags":["toast","teast"]}
