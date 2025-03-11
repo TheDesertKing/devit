@@ -1,6 +1,6 @@
 import startMongo from "@/lib/startMongo"
+import createDocument from "@/lib/createDocument"
 import { NextApiRequest, NextApiResponse } from "next" // Types
-import { parseNewUser } from "@/lib/parse/parseNewUser"
 
 export default async function handler(
   req: NextApiRequest,
@@ -15,7 +15,7 @@ export default async function handler(
       return
     }
 
-    createDocument
+    createDocument(res, req.body, "user", models)
   }
   res.status(400).send("Something went wrong!")
 }

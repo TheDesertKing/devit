@@ -49,3 +49,5 @@ const createDocument = async (
     return
   }
 }
+
+export default createDocument
