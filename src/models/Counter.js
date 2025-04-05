@@ -18,4 +18,5 @@ const counterSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-export default mongoose.models.Idea || mongoose.model("Counter", counterSchema)
+export default mongoose.models.Counter ||
+  mongoose.model("Counter", counterSchema)
